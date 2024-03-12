@@ -1,2 +1,3 @@
 # python-workshop
-test commit
+A repository for learning python.
+## Excercise 1
