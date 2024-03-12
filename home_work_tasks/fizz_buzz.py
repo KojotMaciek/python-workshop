@@ -1,12 +1,16 @@
-def fizz_buzz():
-    for i in range(1, 101):
-        if i % 5 == 0 and i % 3 == 0:
-            print("FizzBuzz")
-        elif i % 5 == 0:
-            print("Buzz")
-        elif i % 3 == 0:
-            print("Fizz")
-        else:
-            print(i)
+def fizz_buzz(i):
+    if i % 5 == 0 and i % 3 == 0:
+        return("FizzBuzz")
+    elif i % 5 == 0:
+        return("Buzz")
+    elif i % 3 == 0:
+        return("Fizz")
+    return i
 
-fizz_buzz()
+def main():
+    assert fizz_buzz(3) == "Fizz"
+    assert fizz_buzz(20) == "Buzz"
+    assert fizz_buzz(45) == "FizzBuzz"
+    
+if __name__ == '__main__':
+    main()
