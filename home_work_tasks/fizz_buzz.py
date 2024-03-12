@@ -8,6 +8,7 @@ def fizz_buzz(i):
     return i
 
 def main():
+    assert fizz_buzz(1) == 1
     assert fizz_buzz(3) == "Fizz"
     assert fizz_buzz(20) == "Buzz"
     assert fizz_buzz(45) == "FizzBuzz"
