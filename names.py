@@ -13,7 +13,7 @@ def greet(name):
     name_list[0] = greetings
     return " ".join(name_list)
 
-def Test():
+def test():
     assert greet("Maciek") == "hi Maciek"
     assert greet("Aga") == "hi pretty Aga"
     assert greet("Barnaba") == "hi Barnaba"
@@ -24,4 +24,4 @@ def Test():
     assert greet("Kuba Wojewodzki") == "hi Kuba Wojewodzki"
 
 if __name__ == '__main__':
-    Test()
+    test()
