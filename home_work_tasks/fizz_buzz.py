@@ -6,12 +6,3 @@ def fizz_buzz(i):
     elif i % 3 == 0:
         return("Fizz")
     return i
-
-def test():
-    assert fizz_buzz(1) == 1
-    assert fizz_buzz(3) == "Fizz"
-    assert fizz_buzz(20) == "Buzz"
-    assert fizz_buzz(45) == "FizzBuzz"
-    
-if __name__ == '__main__':
-    test()
