@@ -1,10 +1,11 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.cache.sqlite
 *.py[cod]
 *$py.class
 
 # Internal notes
-dummy.py
+dummy*.py
 
 # C extensions
 *.so
