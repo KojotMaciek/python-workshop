@@ -10,3 +10,7 @@ Fizz Buzz
 Mars Rover Technical challenge
 Test the code:<br>
 `pytest --cov=mars_rover_technical_challenge .\test_mars_rover_technical_challenge.py -v`
+## Excercise 3
+Game of Life - in progress
+Test the code:<br>
+`pytest --cov=mars_rover_technical_challenge .\test_game_of_life.py  -v`
