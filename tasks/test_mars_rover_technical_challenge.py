@@ -2,10 +2,6 @@ import unittest
 from mars_rover_technical_challenge import Rover
 
 class TestMarsRover(unittest.TestCase):
-    machine_4 = Rover(5, 5, "E", 5, 5)
-    machine_5 = Rover(1, 2, "N", 5, 5)
-    machine_6 = Rover(3, 3, "E", 5, 5)
-
     def test_whereAmI(self):
         machine_1 = Rover(5, 6, "N")
         assert machine_1.whereAmI() == (5, 6, "N")
