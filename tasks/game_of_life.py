@@ -10,3 +10,6 @@ class Life:
             self.grid = self.grid.replace(".*.", "...")
         if self.grid.find("***"):
             self.grid = self.grid.replace("***", ".*.")
+
+def getNeighbors(index, line):
+    return line[index - 1] + line[index + 1] 
