@@ -13,3 +13,8 @@ class Life:
 
 def getNeighbors(index, line):
     return line[index - 1] + line[index + 1] 
+
+def getSubstring(index, word):
+    return word[index - 1:index + 2]
+
+print(getSubstring(2, "123456"))
