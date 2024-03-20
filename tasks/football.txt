@@ -1,0 +1,2 @@
+https://dashboard.api-football.com
+https://rapidapi.com/api-sports/api/api-football/
