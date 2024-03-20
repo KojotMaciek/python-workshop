@@ -1,3 +1,5 @@
+import re
+
 class Life:
     def __init__(self, grid) -> None:
         self.grid = grid
@@ -8,7 +10,7 @@ class Life:
     def nextGeneration(self):
         check = self.grid.split("\n")
         for c, p in enumerate(check):
-            check[c] = p.replace('.*.', '...')
+            check[c] = re.sub(r"(?<=\.)\*(?=\.)", ".", check[c])
         for c, p in enumerate(check):
             check[c] = p.replace('***', '.*.')
         self.grid = '\n'.join(check)
