@@ -6,15 +6,13 @@ class Life:
         return self.grid
     
     def nextGeneration(self):
-        if self.grid.find(".*."):
-            self.grid = self.grid.replace(".*.", "...")
-        if self.grid.find("***"):
-            self.grid = self.grid.replace("***", ".*.")
+        check = self.grid.split("\n")
+        for c, p in enumerate(check):
+            check[c] = p.replace('.*.', '...')
+        for c, p in enumerate(check):
+            check[c] = p.replace('***', '.*.')
+        self.grid = '\n'.join(check)
+        return self.grid
 
 def getNeighbors(index, line):
     return line[index - 1] + line[index + 1] 
-
-def getSubstring(index, word):
-    return word[index - 1:index + 2]
-
-print(getSubstring(2, "123456"))
