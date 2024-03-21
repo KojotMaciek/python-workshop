@@ -8,13 +8,20 @@ class Life:
         return self.grid
     
     def nextGeneration(self):
-        check = self.grid.split("\n")
-        for c, p in enumerate(check):
-            check[c] = re.sub(r"(?<=\.)\*(?=\.)", ".", check[c])
-        for c, p in enumerate(check):
-            check[c] = p.replace('***', '.*.')
-        self.grid = '\n'.join(check)
+        old_generation = self.grid.split("\n")
+        new_generation = old_generation.copy()
+        for y in range(1, len(old_generation)):
+            p = old_generation[y]
+            new_line = "."
+            for x in range(1, len(p)-1):
+                if getNeighbors(x, y, old_generation) != "**":
+                    new_line += "."
+                else:
+                    new_line += p[x]
+            new_generation[y] = new_line + "."
+
+        self.grid = '\n'.join(new_generation)
         return self.grid
 
-def getNeighbors(index, line):
-    return line[index - 1] + line[index + 1] 
+def getNeighbors(x, y, grid):
+    return grid[y][x - 1] + grid[y][x + 1] 

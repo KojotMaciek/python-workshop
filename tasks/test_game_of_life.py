@@ -28,8 +28,19 @@ class TestGameOfLife(unittest.TestCase):
         l.nextGeneration()
         print('Testing \"Last Cell lives\" for grid \"3 5\"')
         assert l.getGrid() == "3 5\n.....\n..*..\n....."
+    
+    def test_lastTwoCellsDie(self):
+        l = game_of_life.Life("3 5\n.....\n.*.*.\n.....")
+        l.nextGeneration()
+        print('Testing \"Last Cell lives\" for grid \"3 5\"')
+        assert l.getGrid() == "3 5\n.....\n.....\n....."
+
+    def test_lastTwoSiblingsDie(self):
+        l = game_of_life.Life("3 5\n.....\n..**.\n.....")
+        l.nextGeneration()
+        print('Testing \"Last Cell lives\" for grid \"3 5\"')
+        assert l.getGrid() == "3 5\n.....\n.....\n....."
 
     def test_neighbors(self):
-        assert game_of_life.getNeighbors(1, "...") == ".."
-        assert game_of_life.getNeighbors(1, "..*") == ".*"
-
+        assert game_of_life.getNeighbors(1, 0, ["..."]) == ".."
+        assert game_of_life.getNeighbors(1, 0, ["..*"]) == ".*"
