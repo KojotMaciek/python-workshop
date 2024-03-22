@@ -41,6 +41,25 @@ class TestGameOfLife(unittest.TestCase):
         print('Testing \"Last Cell lives\" for grid \"3 5\"')
         assert l.getGrid() == "3 5\n.....\n.....\n....."
 
-    def test_neighbors(self):
-        assert game_of_life.getNeighbors(1, 0, ["..."]) == ".."
-        assert game_of_life.getNeighbors(1, 0, ["..*"]) == ".*"
+    def test_verticalNeighbors(self):
+        l = game_of_life.Life("4 5\n.....\n..**.\n..*..\n.....")
+        l.nextGeneration()
+        print('Testing \"Last Cell lives\" for grid \"4 5\"')
+        assert l.getGrid() == "4 5\n.....\n..**.\n..**.\n....."
+        l.nextGeneration()
+        assert l.getGrid() == "4 5\n.....\n..**.\n..**.\n....."
+    
+    def test_finalCountdown(self):
+        l = game_of_life.Life("4 8\n........\n....*...\n...**...\n........")
+        l.nextGeneration()
+        print('Testing \"Last Cell lives\" for grid \"4 5\"')
+        assert l.getGrid() == "4 8\n........\n...**...\n...**...\n........"
+
+    def test_blinker(self):
+        blinker_pattern = "5 5\n.....\n.....\n.***.\n.....\n....."
+        l = game_of_life.Life(blinker_pattern)
+        l.nextGeneration()
+        l.nextGeneration()
+        print('Testing \"Last Cell lives\" for grid \"5 5\"')
+        assert l.getGrid() == blinker_pattern
+
