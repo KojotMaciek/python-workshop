@@ -68,12 +68,13 @@ def letsPlay():
             if living_cell == "":
                 break
             if not re.match(format, living_cell):
-                print("Wrong format of the coordinates. Corrent form: x, y (example: 2, 2)")
-                break
+                raise TypeError
             counter -= 1
             coordinates.append(tuple(map(int, living_cell.split(', '))))
-    except:
-        print("Coordinates are not valid. Try again.")
+    except TypeError:
+        print("Wrong format of the coordinates. Corrent form: x, y (example: 2, 2)")
+    except Exception as error:
+        print("An error occured", error)
     else:
         print("Your grid is: ")
         l = lifeConstructor(grid_x, grid_y, coordinates)
