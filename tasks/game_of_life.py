@@ -32,7 +32,7 @@ def getNeighbors(x, y, grid):
 
 def countLiveNeighbors(n):
     n = re.sub(r"[^*]", "", n)
-    return len(n)
+    return len(n)    
 
 def lifeConstructor(max_x, max_y, pattern):
     grid = [str(max_x) + " " + str(max_y)]
@@ -49,9 +49,41 @@ def lifeConstructor(max_x, max_y, pattern):
         grid.append(line)
     return Life('\n'.join(grid))
 
+def letsPlay():
+    try:
+        grid_x = int(input("Enter the maximum width of the grid: "))
+        grid_y = int(input("Enter the maximum height of the grid: "))
+    except ValueError:
+        print("Provided input is wrong. Enter an integer.")
+    else: 
+        coordinates = []
+        message = "Enter x and y (example: 2, 2) and hit enter. To finish leave this form empty and hit enter: "
+        counter = ((grid_x - 1) * (grid_y - 1))
+        print("Give the coordinates of living cells:")
+    
+    try:
+        format = "[1-9], [1-9]"
+        while counter > 0:
+            living_cell = input(message)
+            if living_cell == "":
+                break
+            if not re.match(format, living_cell):
+                print("Wrong format of the coordinates. Corrent form: x, y (example: 2, 2)")
+                break
+            counter -= 1
+            coordinates.append(tuple(map(int, living_cell.split(', '))))
+    except:
+        print("Coordinates are not valid. Try again.")
+    else:
+        print("Your grid is: ")
+        l = lifeConstructor(grid_x, grid_y, coordinates)
+        for i in range(grid_x):
+            print(l.getGrid())
+            print("#" * grid_x)
+            l.nextGeneration()
+            time.sleep(0.5)
+    finally:
+        print("The game is over")
+
 if __name__ == '__main__':
-    l = lifeConstructor(50, 16, [(1, 1),(2, 2), (3, 2), (1, 3), (2, 3)])
-    for i in range(40):
-        print(l.getGrid())
-        l.nextGeneration()
-        time.sleep(0.5)
+    letsPlay()
