@@ -87,4 +87,6 @@ def letsPlay():
         print("The game is over")
 
 if __name__ == '__main__':
+    with open('game_of_life.txt', 'r') as file:
+        print(file.read())
     letsPlay()
