@@ -63,3 +63,8 @@ class TestGameOfLife(unittest.TestCase):
         print('Testing \"Last Cell lives\" for grid \"5 5\"')
         assert l.getGrid() == blinker_pattern
 
+    def test_lifeConstructor(self):
+        l = game_of_life.lifeConstructor(3, 3, [(1, 1)])
+        assert l.getGrid() == "3 3\n...\n.*.\n..."
+        l = game_of_life.lifeConstructor(4, 3, [(1, 1),(2, 1)])
+        assert l.getGrid() == "4 3\n....\n.**.\n...."

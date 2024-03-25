@@ -34,9 +34,24 @@ def countLiveNeighbors(n):
     n = re.sub(r"[^*]", "", n)
     return len(n)
 
+def lifeConstructor(max_x, max_y, pattern):
+    grid = [str(max_x) + " " + str(max_y)]
+    for iy in range(max_y):
+        line = ""
+        for ix in range(max_x):
+            inserted = False
+            for x, y in pattern:
+                if ix == x and iy == y:
+                    line += "*"
+                    inserted = True
+            if not inserted:
+                line += "."
+        grid.append(line)
+    return Life('\n'.join(grid))
+
 if __name__ == '__main__':
-    l = Life("5 5\n.....\n..*..\n.***.\n...*.\n.....")
-    for i in range(20):
+    l = lifeConstructor(50, 16, [(1, 1),(2, 2), (3, 2), (1, 3), (2, 3)])
+    for i in range(40):
         print(l.getGrid())
         l.nextGeneration()
-        time.sleep(3)
+        time.sleep(0.5)
