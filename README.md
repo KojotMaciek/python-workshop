@@ -13,4 +13,4 @@ Test the code:<br>
 ## Excercise 3
 Game of Life - in progress
 Test the code:<br>
-`pytest --cov=mars_rover_technical_challenge .\test_game_of_life.py  -v`
+`pytest .\test_game_of_life.py  -v`
