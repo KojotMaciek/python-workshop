@@ -58,11 +58,11 @@ def letsPlay():
     else: 
         coordinates = []
         message = "Enter x and y (example: 2, 2) and hit enter. To finish leave this form empty and hit enter: "
-        counter = ((grid_x - 1) * (grid_y - 1))
+        counter = ((grid_x - 2) * (grid_y - 2))
         print("Give the coordinates of living cells:")
     
     try:
-        format = "[1-9], [1-9]"
+        format = "[1-9]+, [1-9]+"
         while counter > 0:
             living_cell = input(message)
             if living_cell == "":
