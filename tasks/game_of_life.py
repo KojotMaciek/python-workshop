@@ -62,7 +62,7 @@ def letsPlay():
         print("Give the coordinates of living cells:")
     
     try:
-        format = "[1-9]+, [1-9]+"
+        format = "[1-9]|[1-9][0-9], [1-9]|[1-9][0-9]"
         while counter > 0:
             living_cell = input(message)
             if living_cell == "":
