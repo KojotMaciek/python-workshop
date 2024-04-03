@@ -27,7 +27,8 @@ def showData():
         position = data_json["response"][0]["league"]["standings"][0][team_id]["rank"]
         team = data_json["response"][0]["league"]["standings"][0][team_id]["team"]["name"]
         points = data_json["response"][0]["league"]["standings"][0][team_id]["points"]
-        print(str(position) + ". " + team + " - " + str(points) + " points")
+        form = data_json["response"][0]["league"]["standings"][0][team_id]["form"]
+        print(str(position) + ". " + team + " - " + str(points) + " points" + " - form: " + form)
 
 try:
     select_league = int(input("Select league:\n 1 - Serie A\n 2 - La Liga\n 3 - Premier League\nYour choice (1, 2 or 3): "))
